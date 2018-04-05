@@ -1,0 +1,29 @@
+{
+  "name": "vue-imgclip",
+  "version": "1.0.0",
+  "description": "vue image clip",
+  "main": "./src/vue-imageclip.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Hzy0913/vue-imageClip.git"
+  },
+  "keywords": [
+    "vue",
+    "image",
+    "clip"
+  ],
+  "author": "hzy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hzy0913/vue-imageClip/issues"
+  },
+  "homepage": "https://github.com/Hzy0913/vue-imageClip#readme",
+  "dependencies": {
+    "exif-js": "^2.3.0",
+    "hammerjs": "^2.0.8",
+    "html2canvas": "^1.0.0-alpha.12"
+  }
+}
