@@ -47,12 +47,12 @@
       },
       buttonValue: {
         type: Object,
-        default: {
+        default: () => ({
           clipText: '裁剪',
           clipClass: "",
           resetText: '重置',
           resetClass: "",
-        }
+        })
       }
     },
     mounted() {

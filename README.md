@@ -19,7 +19,7 @@ vue图片上传预览裁剪组件，支持移动端放大缩小平移。
 注册组件后创建`<VimageClip />`标签
 
       // script
-      components:{
+      components: {
         VimageClip
       }
 
