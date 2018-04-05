@@ -53,14 +53,7 @@
           resetText: '重置',
           resetClass: "",
         }
-      },
-      restValue: {
-        type: Number,
-        default: 20
       }
-    },
-    created() {
-      this.$root.eventHub.$emit('hidebar', false)
     },
     mounted() {
       var reqAnimationFrame = (function () {
@@ -164,7 +157,7 @@
                   rotateCanvas.height = image.offsetHeight;
                   rotateCtx.drawImage(image, 0, 0, image.offsetWidth, image.offsetHeight);
                   break;
-                case 6 : // 顺时针 90 度
+                case 6 :
                   rotateCanvas.width = image.offsetHeight;
                   rotateCanvas.height = image.offsetWidth;
                   rotateCtx.translate(0, 0);
@@ -178,7 +171,7 @@
                   rotateCtx.rotate(-90 * Math.PI / 180);
                   rotateCtx.drawImage(image, -image.width, 0, image.width, image.height);
                   break;
-                case 3 : // 180 度
+                case 3 :
                   rotateCanvas.width = image.width;
                   rotateCanvas.height = image.height;
                   rotateCtx.translate(0, 0);
@@ -221,7 +214,6 @@
         var height = this.height.replace(/[^0-9]/ig,"");
         var scaleBy = this.hd ? 2 : 1;
         var canvas = document.createElement("canvas");
-        // 获取元素相对于视窗的偏移量
         var rect = wrapperDom.getBoundingClientRect();
         canvas.width = width * scaleBy;
         canvas.height = height * scaleBy;
@@ -229,7 +221,6 @@
         canvas.style.height = height + "px";
         var context = canvas.getContext("2d");
         context.scale(scaleBy, scaleBy);
-        // 设置context位置, 值为相对于视窗的偏移量的负值, 实现图片复位
         context.translate(-rect.left, -rect.top);
         wrapperDom.style.backgroundColor = this.backgroundColor ? this.backgroundColor : '';
         html2canvas(wrapperDom, {
@@ -245,9 +236,7 @@
           const file = self.file;
           file.width = self.imgWidth;
           file.height = self.imgHeight;
-          if (self) {
-            self.$emit('imageClipper', {dataUrl, file});
-          }
+          self.$emit('imageClipper', {dataUrl, file});
         });
       },
       resetImage() {
