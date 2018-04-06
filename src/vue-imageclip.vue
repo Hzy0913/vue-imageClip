@@ -7,6 +7,7 @@
       </div>
       <img src="" ref="render" class="image-render" :style="{width: width, height: height, display: showRender}">
     </div>
+    <vue-slider v-if="control" v-model="range" :useKeyboard=true tooltip="hover" :min=1 class="imgclip-range" />
     <button v-on:click="imageClipper" :class="buttonValue.clipClass || 'button'">{{buttonValue.clipText || '裁剪'}}</button>
     <button @click="resetImage" :class="buttonValue.resetClass || 'button'">{{buttonValue.resetText || ' 重置'}}</button>
   </div>
@@ -15,8 +16,12 @@
   import Hammer from 'hammerjs'
   import html2canvas from 'html2canvas'
   import EXIF from 'exif-js'
+  import vueSlider from 'vue-slider-component'
   export default {
     name: 'VimageClip',
+    components: {
+      vueSlider
+    },
     data () {
       return {
         transform: null,
@@ -25,7 +30,8 @@
         showFile:true,
         file: null,
         imgWidth: null,
-        imgHeight: null
+        imgHeight: null,
+        range: 30
       }
     },
     props: {
@@ -45,6 +51,10 @@
         type: String,
         default: ''
       },
+      control: {
+        type: Boolean,
+        default: false
+      },
       buttonValue: {
         type: Object,
         default: () => ({
@@ -53,6 +63,25 @@
           resetText: '重置',
           resetClass: "",
         })
+      }
+    },
+    watch: {
+      range (val) {
+        var self = this;
+        var val = val/30;
+        this.transform.scale = 1;
+        this.transform.scale = val;
+        this.transform.translate.x = this.START_X;
+        this.transform.translate.y = this.START_Y;
+        var dragEl = this.$refs.dragImage;
+        var value = [
+          'translate3d(' + this.transform.translate.x + 'px, ' + this.transform.translate.y + 'px, 0)',
+          'scale(' + this.transform.scale + ', ' + this.transform.scale + ')'
+        ];
+        value = value.join(" ");
+        dragEl.style.webkitTransform = value;
+        dragEl.style.mozTransform = value;
+        dragEl.style.transform = value;
       }
     },
     mounted() {
@@ -96,8 +125,7 @@
       function updateElementTransform() {
         var value = [
           'translate3d(' + self.transform.translate.x + 'px, ' + self.transform.translate.y + 'px, 0)',
-          'scale(' + self.transform.scale + ', ' + self.transform.scale + ')',
-          'rotate3d('+ self.transform.rx +','+ self.transform.ry +','+ self.transform.rz +','+  self.transform.angle + 'deg)'
+          'scale(' + self.transform.scale + ', ' + self.transform.scale + ')'
         ];
         value = value.join(" ");
         dragEl.style.webkitTransform = value;
@@ -271,4 +299,5 @@
   .image-Clip{display: inline-block}
   .image-render{position: absolute;left: 0px;top: 0px}
   .button{padding: 6px 12px;border-radius: 4px;outline: none;letter-spacing: 1px; border: none; border: 1px solid #eee;background-color: #fff}
+  .imgclip-range{margin-bottom: 10px}
 </style>
