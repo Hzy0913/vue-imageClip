@@ -1,6 +1,6 @@
 {
   "name": "vue-imgclip",
-  "version": "1.0.3",
+  "version": "1.1.3",
   "description": "vue image clip",
   "main": "./src/vue-imageclip.vue",
   "scripts": {
@@ -24,6 +24,7 @@
   "dependencies": {
     "exif-js": "^2.3.0",
     "hammerjs": "^2.0.8",
-    "html2canvas": "^1.0.0-alpha.12"
+    "html2canvas": "^1.0.0-alpha.12",
+    "vue-slider-component": "^2.6.1"
   }
 }
