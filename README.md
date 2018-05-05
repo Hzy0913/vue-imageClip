@@ -24,17 +24,17 @@ vue图片上传预览裁剪组件，支持移动端放大缩小平移。
       }
 
 	  // html
-	  <VimageClip @imageClipper="handelclip"/>
+	  <VimageClip @imageClipper="handleclip"/>
 
 
 ### 方法 ###
 
 
-图片裁剪: @imageClipper="handelclip"
+图片裁剪: @imageClipper="handleclip"
 图片裁剪方法，回调中可以获取裁剪完成base64和图片原始信息。
 
       methods: {
-        handelclip(data) {
+        handleclip(data) {
           console.log(data);
         }
       }
