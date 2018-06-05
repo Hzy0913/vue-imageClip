@@ -6,8 +6,8 @@ vue图片上传预览裁剪组件，支持移动端放大缩小平移。
 ### 在线预览 ###
 [在线预览地址](http://admin.binlive.cn/mavatar "预览地址")
 
-###### 二维码预览
-![binlive前端开发,web开发,node,vue,react,webpack](http://img.binlive.cn/upload/1525271432704qrcode.png)
+二维码预览
+[![qrcode](http://img.binlive.cn/upload/1521910380734 "qrcode")](http://img.binlive.cn/upload/1521910380734 "qrcode")
 ### 使用 ###
 安装
 
@@ -33,14 +33,16 @@ vue图片上传预览裁剪组件，支持移动端放大缩小平移。
 图片裁剪: @imageClipper="handleclip"
 图片裁剪方法，回调中可以获取裁剪完成base64和图片原始信息。
 
-      methods: {
+```javascript
+methods: {
         handleclip(data) {
           console.log(data);
         }
-      }
+}
+```
 ### 组件参数 ###
-
-    <VimageClip
+```javascript
+ <VimageClip
       width="300px"
       height="300px"
       backgroundColor="#ff6633"
@@ -49,6 +51,7 @@ vue图片上传预览裁剪组件，支持移动端放大缩小平移。
       :buttonValue='{ clipText: "裁剪", clipClass: "clip-button"}'
       @imageClipper="handelclip"
     />
+```
 
 |参数   |值   |描述   |
 | ------------ | ------------ | ------------ |
