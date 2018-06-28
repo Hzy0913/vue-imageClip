@@ -3,8 +3,8 @@
 vue图片上传预览裁剪组件，支持移动端放大缩小平移。
 
 
-### 在线预览 ###
-[在线预览地址](http://admin.binlive.cn/mavatar "预览地址")
+###### 二维码预览
+![binlive前端开发,web开发,node,vue,react,webpack](http://img.binlive.cn/upload/1525271432704qrcode.png)
 
 二维码预览
 [![qrcode](http://img.binlive.cn/upload/1521910380734 "qrcode")](http://img.binlive.cn/upload/1521910380734 "qrcode")
