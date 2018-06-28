@@ -3,7 +3,7 @@
 vue图片上传预览裁剪组件，支持移动端放大缩小平移。
 
 
-二维码预览
+#### 二维码预览
 [![qrcode](http://img.binlive.cn/upload/1521910380734 "qrcode")](http://img.binlive.cn/upload/1521910380734 "qrcode")
 ### 使用 ###
 安装
